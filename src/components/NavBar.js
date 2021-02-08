@@ -34,7 +34,7 @@ const StyledNavBar = styled.nav`
      color: white;
      margin: 10px;
      padding: 10px;
-     font-family: ${props => props.theme.fonts.sansSerif};
+     font-family: ${props => props.theme.fonts.fancy};
      font-weight: 600;
      letter-spacing: 2px;
      font-size: 20px;

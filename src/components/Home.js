@@ -4,22 +4,35 @@ import placeholder from './images/placeholder.png';
 import logo from './images/logo.jpeg';
 
 const StyledDiv = styled.div`
-    width: 100vw;
+    background-color: ${props => props.theme.colors.palePink};
+    width: 100%;
     display: flex;
     justify-content: center; 
-
+    align-items: center;
 `;
 
-const StyledLogo = styled.img`
-    width: 40%;
-    
+// const StyledLogo = styled.img`
+//     width: 400px;
+// `;
 
+const StyledTaglineContainer = styled.div`
+    
+    font-family: ${props => props.theme.fonts.sansSerif};
+    color: ${props => props.theme.colors.darkPurple};
+    display: flex;
+    justify-content: center; 
+    h2 {
+        letter-spacing: 2px;
+    }
 `;
 
 function Home() {
     return (
         <StyledDiv> 
-            <StyledLogo src={logo} alt="Logo"></StyledLogo>
+            {/* <StyledLogo src={logo} alt="Logo"></StyledLogo> */}
+            <StyledTaglineContainer>
+                <h2> From simple to bespoke designs. Celebration cakes for all occasions. </h2>
+            </StyledTaglineContainer>
         </StyledDiv>
     )
 }
