@@ -9,6 +9,7 @@ const StyledDiv = styled.div`
     display: flex;
     justify-content: center; 
     align-items: center;
+    padding-top: 78px;
 `;
 
 // const StyledLogo = styled.img`
@@ -29,7 +30,7 @@ const StyledTaglineContainer = styled.div`
 function Home() {
     return (
         <StyledDiv> 
-            {/* <StyledLogo src={logo} alt="Logo"></StyledLogo> */}
+           
             <StyledTaglineContainer>
                 <h2> From simple to bespoke designs. Celebration cakes for all occasions. </h2>
             </StyledTaglineContainer>

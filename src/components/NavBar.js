@@ -2,12 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledNavContainer = styled.div`
-
+    position: fixed;
+    width: 100%;
  display: flex;
  flex-direction: row;
  background: ${props => props.theme.colors.lilac};
  opacity: 100%;
-
  justify-content: space-between;
  align-items: center;
  h1 {
@@ -22,7 +22,6 @@ const StyledNavContainer = styled.div`
 
 const StyledNavBar = styled.nav`
  ul {
-     
      list-style-type: none;
      margin: 0;
      padding: 0;
@@ -53,7 +52,6 @@ function NavBar() {
                     <li>Home</li>
                     <li>About</li>
                     <li>Menu</li>
-                    <li>Services</li>
                     <li>Gallery</li>
                     <li>Testimonials</li>
                     <li>Contact</li>
