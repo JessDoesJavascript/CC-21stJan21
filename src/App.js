@@ -4,7 +4,9 @@ import NavBar from './components/NavBar';
 import About from './components/About';
 import Menu from './components/Menu';
 import Gallery from './components/Gallery';
+import Reviews from './components/Reviews';
 import styled from 'styled-components';
+
 
 const StyledDiv = styled.div`
     opacity: 100%;
@@ -20,6 +22,7 @@ function App() {
     <About />
     <Menu /> 
     <Gallery />
+    <Reviews />
     </StyledDiv>
     </Theme>
   );

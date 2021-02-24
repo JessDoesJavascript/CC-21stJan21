@@ -11,7 +11,7 @@ const StyledDiv = styled.div`
   right: 0;
   bottom: 0;
   margin: auto;
-  background-color: rgba(255,0,0, 0.5);
+  background-color: rgba(0,0,0, 0.5);
 `;
 
 const StyledCard = styled.div`
@@ -32,8 +32,8 @@ const StyledButton = styled.button`
 
 function PopUp(props) {
     return (
-        <StyledDiv>
-            <StyledCard>
+        <StyledDiv onClick={props.click}>
+            <StyledCard onClick={props.doNothingClick}>
              <h1>{props.title}</h1>
              <p>{props.info}</p>
              <p>{props.image}</p>

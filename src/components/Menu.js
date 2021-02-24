@@ -12,6 +12,7 @@ const StyledDiv = styled.div`
     display: flex; 
     flex-direction: column; 
     align-items: center; 
+    padding-bottom: 5%;
 `;
 
 const StyledH3 = styled.h3`
@@ -22,7 +23,6 @@ const StyledH3 = styled.h3`
     letter-spacing: 2px; 
     margin: 10px; 
     padding: 10px; 
-
 `;
 
 const StyledImg = styled.img`
@@ -64,8 +64,6 @@ const StyledButton = styled.button`
         border-bottom: solid 5px ${props => props.theme.colors.lilac}
     }
 `;
-
-
 class Menu extends React.Component {
     
     state = {
@@ -116,16 +114,23 @@ class Menu extends React.Component {
         })
     }
 
+    doNothing = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
 
     render() {
         return (
             <StyledDiv> 
                 <StyledH3> the menu </StyledH3>
                 {this.state.popUpShown === false ? null : <PopUp click={this.clickHandler} 
+                                                                 doNothingClick={this.doNothing} 
                                                                  title={this.state.popUpContent.title} 
                                                                  info={this.state.popUpContent.info} 
                                                                  image={this.state.popUpContent.image}/>}
                 <StyledImagesContainer> 
+
                 {/* Brownies image and button */}
                     <StyledImgCard>
                         <StyledImg src={brownies} alt='Chocolate oreo brownies.'></StyledImg>
@@ -149,10 +154,6 @@ class Menu extends React.Component {
                         <StyledImg src={tieredCake} alt='Beautiful 3-tiered wedding cake decorated in buttercream and pale pink roses.'></StyledImg>
                         <StyledButton onClick={() => {this.clickHandler('tiered-cakes')}}>Tiered Cakes</StyledButton>
                     </StyledImgCard>
-                       
-                        
-                        
-                      
                 </StyledImagesContainer>
             </StyledDiv>
         )
