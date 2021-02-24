@@ -51,7 +51,7 @@ const StyledPhotosContainer = styled.div`
 
 function Gallery() {
     let imageArray = [biscoffCake, carrotCake, choccyCake, chocoholicCake, 
-                      chocolateCake, cremeEggCake, cupcakes, easterCake, 
+                      chocolateCake, cremeEggCake, easterCake, 
                       easterEggCake, lotusCake, marsCupcakes2, outsideCake, 
                       pinkCake, speckledCake, valentinesCupcakes];
 
