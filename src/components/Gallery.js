@@ -19,7 +19,7 @@ import valentinesCupcakes from './images/valentinesCupcakes.jpg';
 
 
 const StyledDiv = styled.div`
-    background-color: ${props => props.theme.colors.palePink};
+    background-color: white;
     height: 100%;
     display: flex;
     justify-content: center; 

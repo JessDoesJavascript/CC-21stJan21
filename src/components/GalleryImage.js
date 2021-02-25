@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 
 const StyledDiv = styled.div`
-    background-color: ${props => props.theme.colors.palePink}; 
+    background-color: white; 
     
 `;
 
@@ -11,7 +11,10 @@ const StyledImg = styled.img`
     height: 250px;
     border: solid 10px white;
     margin: 5px;
-
+    :hover {
+        box-shadow: 0px 1px 11px -1px rgba(0,0,0,0.5);
+    }
+    
 `;
 
 const StyledCaption = styled.p`
