@@ -4,7 +4,7 @@ import brownies from './images/brownies.jpg';
 import chocolateCake from './images/roloCake.jpg';
 import cupcakes from './images/marsCupcakes.jpg';
 import tieredCake from './images/tieredCake.jpg';
-import PopUp from './PopUp';
+import MenuPopUp from './MenuPopUp';
 
 const StyledDiv = styled.div`
     background-color: ${props => props.theme.colors.palePink};
@@ -31,12 +31,14 @@ const StyledImg = styled.img`
     margin-right: 10px;
     margin-top: 10px;
     border: 10px solid white; 
+    
 `;
 
 const StyledImagesContainer = styled.div`
     display: flex; 
     align-items: center;
-    justify-content: space-between;     
+    justify-content: space-between; 
+   
 `;
 
 const StyledImgCard = styled.div`
@@ -45,6 +47,16 @@ const StyledImgCard = styled.div`
     flex-direction: column;
     justify-content: center; 
     align-items: center; 
+    ${'' /* margin-bottom: 10px;
+    padding-bottom: 10px;  */}
+    border-bottom: solid 5px ${props => props.theme.colors.palePink};
+    :hover {
+        cursor: pointer;
+        border-bottom: solid 5px ${props => props.theme.colors.lilac};
+    
+        
+        
+    }
 `;
 
 const StyledButton = styled.button`
@@ -59,10 +71,7 @@ const StyledButton = styled.button`
     cursor: pointer; 
     color: ${props => props.theme.colors.darkPurple};
     border: none;
-    border-bottom: solid 5px ${props => props.theme.colors.palePink};
-    :hover {
-        border-bottom: solid 5px ${props => props.theme.colors.lilac}
-    }
+    
 `;
 class Menu extends React.Component {
     
@@ -124,7 +133,7 @@ class Menu extends React.Component {
         return (
             <StyledDiv> 
                 <StyledH3> the menu </StyledH3>
-                {this.state.popUpShown === false ? null : <PopUp click={this.clickHandler} 
+                {this.state.popUpShown === false ? null : <MenuPopUp click={this.clickHandler} 
                                                                  doNothingClick={this.doNothing} 
                                                                  title={this.state.popUpContent.title} 
                                                                  info={this.state.popUpContent.info} 
@@ -133,25 +142,37 @@ class Menu extends React.Component {
 
                 {/* Brownies image and button */}
                     <StyledImgCard>
-                        <StyledImg src={brownies} alt='Chocolate oreo brownies.'></StyledImg>
+                        <StyledImg src={brownies} 
+                                   alt='Chocolate oreo brownies.'
+                                   onClick={() => {this.clickHandler('brownies')}}>                         
+                        </StyledImg>
                         <StyledButton onClick={() => {this.clickHandler('brownies')}}>Brownies</StyledButton>
                     </StyledImgCard>
 
                 {/* Cakes image and button  */}
                     <StyledImgCard>
-                        <StyledImg src={chocolateCake} alt='Chocolate cake decorated with various chocolate bars and sweets'></StyledImg>
+                        <StyledImg src={chocolateCake} 
+                                   alt='Chocolate cake decorated with various chocolate bars and sweets'
+                                   onClick={() => {this.clickHandler('cakes')}}>
+                        </StyledImg>
                         <StyledButton onClick={() => {this.clickHandler('cakes')}}>Cakes</StyledButton>
                     </StyledImgCard>
 
                 {/* Cupcakes image and button  */}
                     <StyledImgCard>
-                        <StyledImg src={cupcakes} alt='Cupcakes decorated with buttercream and slices of mars bar.'></StyledImg>
+                        <StyledImg src={cupcakes} 
+                                   alt='Cupcakes decorated with buttercream and slices of mars bar.'
+                                   onClick={() => {this.clickHandler('cupcakes')}}>
+                        </StyledImg>
                         <StyledButton onClick={() => {this.clickHandler('cupcakes')}}>Cupcakes</StyledButton>
                     </StyledImgCard>
                 
                 {/* Tiered cakes  */}
                     <StyledImgCard>  
-                        <StyledImg src={tieredCake} alt='Beautiful 3-tiered wedding cake decorated in buttercream and pale pink roses.'></StyledImg>
+                        <StyledImg src={tieredCake} 
+                                   alt='Beautiful 3-tiered wedding cake decorated in buttercream and pale pink roses.'
+                                   onClick={() => {this.clickHandler('tiered-cakes')}}>
+                        </StyledImg>
                         <StyledButton onClick={() => {this.clickHandler('tiered-cakes')}}>Tiered Cakes</StyledButton>
                     </StyledImgCard>
                 </StyledImagesContainer>

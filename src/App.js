@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import About from './components/About';
 import Menu from './components/Menu';
 import Gallery from './components/Gallery';
+import TestGallery from './components/TestGallery';
 import Testimonials from './components/Testimonials';
 import ContactForm from './components/ContactForm';
 import styled from 'styled-components';
@@ -21,7 +22,7 @@ function App() {
     <Home />
     <About />
     <Menu /> 
-    <Gallery />
+    <TestGallery /> 
     <Testimonials />
     <ContactForm />
     </StyledDiv>

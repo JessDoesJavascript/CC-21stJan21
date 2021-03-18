@@ -1,18 +1,89 @@
 import React from 'react';
-import styled from 'styled-components';
+import axios from 'axios';
 
-function ContactForm() {
-    return (
-      <div className="Form">
-          <h1> Contact form test</h1>
-          <form>
-          <label for="name">*Your Name:</label> <input id="name" type="text" name="name"></input>
-          <label for="email">*Your email:</label> <input id="email" type="email" name="email"></input>
-          <label for="phone">*Your contact number:</label> <input id="phone" type="tel" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"></input>
-          <label for="message">*Your message:</label> <input id="message" type="text" name="message"></input>
-          </form>
-      </div>
-    );
-  }
-  
-  export default ContactForm;
+class ContactForm extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            name: '',
+            email: '',
+            message: '',
+            send: false,
+            buttonText: 'Send Message'
+        }
+    }
+
+    changeHandler = (e) => {
+        this.setState({[e.target.name]: e.target.value})
+    }
+
+    resetForm = () => {
+        this.setState({
+            name: '',
+            message: '',
+            email: '',
+            buttonText: 'Message Sent!'
+        })
+    }
+
+
+    submitHandler = (e) => {
+        e.preventDefault()
+
+        this.setState({
+            buttonText: '...sending'
+        })
+
+        const params = {
+        name: this.state.name,
+        email: this.state.email,
+        message: this.state.message }
+        console.log(params)
+     
+        axios
+            .post('http://localhost:5000/send', params)
+            .then(res => {
+                this.setState({ sent: true }, this.resetForm())
+            })
+            .catch(() => {
+                console.log('Message not sent');
+        })
+    }
+        
+
+   
+
+    
+
+    render() {
+        const { name, email, message } = this.state
+        return (
+            <div className="contact-form">
+                <h1> Contact form test</h1>
+                <form onSubmit={this.submitHandler}>
+                    <div> 
+                        <input type="text"
+                               name="name"
+                               value={name}
+                               onChange={this.changeHandler}></input>
+                    </div>
+                    <div>
+                        <input type="text"
+                            name="email"
+                            value={email}
+                            onChange={this.changeHandler}></input>
+                    </div>
+                    <div>
+                        <input type="text"
+                            name="message"
+                            value={message}
+                            onChange={this.changeHandler}></input>
+                    </div>
+                <button type="submit">{this.state.buttonText}</button>
+                </form>
+            </div>
+        );
+    }
+}
+
+export default ContactForm;
