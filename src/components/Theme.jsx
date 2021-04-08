@@ -12,9 +12,9 @@ const theme = {
         darkPurple: '#362867'
     },
     fonts: {
-        chunkySansSerif: '"Open Sans Condensed", sans- serif',
-        sansSerif: '"Open Sans Condensed", sans-serif',
-        fancy: '"Inria Serif", serif'
+        chunkySansSerif: "'Barlow', sans-serif",
+        sansSerif: "'Barlow', sans-serif",
+        fancy: "'Barlow', sans-serif"
     },
     fontSize: {
         small: '1.2rem',

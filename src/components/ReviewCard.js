@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 const StyledReviewCardContainer = styled.div`
     background-color: white; 
-    
     margin: 10px;
 `;
 

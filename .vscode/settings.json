@@ -1,3 +1,5 @@
 {
-    "workbench.colorTheme": "Monokai"
+    "workbench.colorTheme": "Monokai", 
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000
 }

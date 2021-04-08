@@ -16,12 +16,13 @@ const StyledDiv = styled.div`
 
 const StyledCard = styled.div`
   position: absolute;
-  left: 25%;
-  right: 25%;
-  top: 25%;
-  bottom: 25%;
+  left: 10%;
+  right: 10%;
+  top: 30%;
+  bottom: 30%;
   margin: auto;
   border-radius: 10px;
+  box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
   background: white;
 `;
 
@@ -30,7 +31,6 @@ const StyledInfoContainer = styled.div`
   flex-direction: column;
   justify-content: space-evenly; 
   align-items: center;
-
   height: 100%;
   `;
 
@@ -40,7 +40,9 @@ const StyledH1 = styled.h1`
   `;
 
 const StyledP = styled.p`
-
+    font-family: ${props => props.theme.fonts.sansSerif};
+    color: ${props => props.theme.colors.lilac};
+    padding: 5px; 
   `;
 
 const StyledButton = styled.button`
@@ -61,7 +63,6 @@ function MenuPopUp(props) {
               <StyledInfoContainer>
                   <StyledH1>{props.title}</StyledH1>
                   <StyledP>{props.info}</StyledP>
-                  
                   <StyledButton onClick={props.click}>X Close</StyledButton>
                 </StyledInfoContainer>
             </StyledCard>

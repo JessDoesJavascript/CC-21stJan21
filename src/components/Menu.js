@@ -6,14 +6,32 @@ import cupcakes from './images/marsCupcakes.jpg';
 import tieredCake from './images/tieredCake.jpg';
 import MenuPopUp from './MenuPopUp';
 
+
 const StyledDiv = styled.div`
     background-color: ${props => props.theme.colors.palePink};
     width: 100%; 
+    height: 100%;
     display: flex; 
     flex-direction: column; 
     align-items: center; 
-    padding-bottom: 5%;
+    padding-bottom: 10%;
+    padding-top: 5%;
+    @media (min-height: 770px) {
+        height: 100vh;
+    }
+    
 `;
+
+const TopEmptyDiv = styled.div`
+    height: 78px;
+    `;
+
+const BottomEmptyDiv = styled.div`
+    height: 10vh;
+    @media (min-width: 719px) {
+        display: none;
+    }
+    `;
 
 const StyledH3 = styled.h3`
     color: ${props => props.theme.colors.darkPurple};
@@ -30,15 +48,19 @@ const StyledImg = styled.img`
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 10px;
-    border: 10px solid white; 
-    
+    border: 10px solid white;  
 `;
 
 const StyledImagesContainer = styled.div`
     display: flex; 
     align-items: center;
     justify-content: space-between; 
-   
+    flex-direction: column; 
+    @media (min-width: 600px) {
+        flex-direction: row; 
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 `;
 
 const StyledImgCard = styled.div`
@@ -47,15 +69,10 @@ const StyledImgCard = styled.div`
     flex-direction: column;
     justify-content: center; 
     align-items: center; 
-    ${'' /* margin-bottom: 10px;
-    padding-bottom: 10px;  */}
-    border-bottom: solid 5px ${props => props.theme.colors.palePink};
+    border-bottom: solid 5px white;
     :hover {
         cursor: pointer;
-        border-bottom: solid 5px ${props => props.theme.colors.lilac};
-    
-        
-        
+        border-bottom: solid 5px ${props => props.theme.colors.lilac}; 
     }
 `;
 
@@ -64,17 +81,15 @@ const StyledButton = styled.button`
     font-weight: 600;
     background: white;
     margin: 0px; 
-    margin-bottom: 10px; 
+    padding: 2px;
     width: 250px;
     font-size: 25px;
     letter-spacing: 2px; 
     cursor: pointer; 
     color: ${props => props.theme.colors.darkPurple};
     border: none;
-    
 `;
 class Menu extends React.Component {
-    
     state = {
         popUpShown: false,  
         popUpContent: {
@@ -89,7 +104,7 @@ class Menu extends React.Component {
             this.setState({
                 popUpContent: {
                     title: "Brownies",
-                    info: "Info about brownies!",
+                    info: "Prices start at £15 a tray, flavours can include biscoff, salted caramel, hazelnut and cherry.",
                     image: "Image placeholder"
                 }
             })
@@ -132,6 +147,7 @@ class Menu extends React.Component {
     render() {
         return (
             <StyledDiv> 
+            <TopEmptyDiv />
                 <StyledH3> the menu </StyledH3>
                 {this.state.popUpShown === false ? null : <MenuPopUp click={this.clickHandler} 
                                                                  doNothingClick={this.doNothing} 
@@ -139,15 +155,6 @@ class Menu extends React.Component {
                                                                  info={this.state.popUpContent.info} 
                                                                  image={this.state.popUpContent.image}/>}
                 <StyledImagesContainer> 
-
-                {/* Brownies image and button */}
-                    <StyledImgCard>
-                        <StyledImg src={brownies} 
-                                   alt='Chocolate oreo brownies.'
-                                   onClick={() => {this.clickHandler('brownies')}}>                         
-                        </StyledImg>
-                        <StyledButton onClick={() => {this.clickHandler('brownies')}}>Brownies</StyledButton>
-                    </StyledImgCard>
 
                 {/* Cakes image and button  */}
                     <StyledImgCard>
@@ -175,7 +182,17 @@ class Menu extends React.Component {
                         </StyledImg>
                         <StyledButton onClick={() => {this.clickHandler('tiered-cakes')}}>Tiered Cakes</StyledButton>
                     </StyledImgCard>
+
+                {/* Brownies image and button */}
+                <StyledImgCard>
+                        <StyledImg src={brownies} 
+                                   alt='Chocolate oreo brownies.'
+                                   onClick={() => {this.clickHandler('brownies')}}>                         
+                        </StyledImg>
+                        <StyledButton onClick={() => {this.clickHandler('brownies')}}>Other Bakes</StyledButton>
+                    </StyledImgCard>
                 </StyledImagesContainer>
+                <BottomEmptyDiv />
             </StyledDiv>
         )
     }

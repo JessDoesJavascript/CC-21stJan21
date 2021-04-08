@@ -10,6 +10,8 @@ const StyledDiv = styled.div`
     flex-direction: column; 
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    
 
 `; 
 
@@ -24,15 +26,19 @@ const StyledH3 = styled.h3`
 `;
 
 const StyledReviewCardsContainer = styled.div`
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: flex-start; 
+    flex-direction: column;
+    
 `;
 
 
 function Testimonials() {
     return (
         <StyledDiv> 
+        <a id="testimonials" href="testimonials" />
             <StyledH3>testimonials</StyledH3>
             <StyledReviewCardsContainer>
                 <ReviewCard content="The cake looked beautiful and tasted even better!"></ReviewCard>

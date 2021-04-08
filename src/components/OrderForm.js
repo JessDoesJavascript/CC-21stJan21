@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 
 const StyledContactForm = styled.div`
@@ -22,12 +21,6 @@ const StyledH3 = styled.h3`
     margin-top: 0px;
     margin-bottom: 0px;
     padding: 10px; 
-`;
-
-const StyledP = styled.p`
-    font-family: ${props => props.theme.fonts.sansSerif};
-    color: ${props => props.theme.colors.darkPurple};
-    letter-spacing: 1px;
 `;
 
 const StyledForm =  styled.form`
@@ -74,6 +67,9 @@ const StyledContainer = styled.div`
     align-items: center;
 `;
 
+
+
+
 const StyledButton = styled.button`
     font-family: ${props => props.theme.fonts.fancy};
     font-weight: 700;
@@ -107,13 +103,16 @@ const EmptyDiv = styled.div`
     height: 78px;
 `;
 
-class ContactForm extends React.Component {
+class OrderForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             name: '',
             email: '',
             phoneNumber: '',
+            eventDate: '',
+            dateForCake: '',
+            eventType: '',
             message: '',
             send: false,
             buttonText: 'Send Message'
@@ -130,6 +129,9 @@ class ContactForm extends React.Component {
             message: '',
             email: '',
             phoneNumber: '',
+            eventDate: '',
+            dateForCake: '',
+            eventType: '',
             buttonText: 'Message Sent!'
         })
     }
@@ -144,6 +146,9 @@ class ContactForm extends React.Component {
             name: this.state.name,
             email: this.state.email,
             phoneNumber: this.state.phoneNumber,
+            eventDate: this.state.eventDate,
+            dateForCake: this.state.dateForCake,
+            eventType: this.state.eventType,
             message: this.state.message }
             console.log(params)    
             axios
@@ -157,12 +162,11 @@ class ContactForm extends React.Component {
     }
 
     render() {
-        const { name, email, message } = this.state
+        const { name, email, phoneNumber, message, eventDate, dateForCake, eventType } = this.state
         return (
             <StyledContactForm>
             <EmptyDiv />
-                <StyledH3> get in touch </StyledH3>
-                <StyledP> If you would like to enquire about placing an order, please visit our <Link to="/order">order enquiries page</Link> and fill in the form there. </StyledP>
+                <StyledH3> order enquiries </StyledH3>
                 <StyledForm onSubmit={this.submitHandler}>
 
                 {/* Name  */}
@@ -185,9 +189,52 @@ class ContactForm extends React.Component {
                                onChange={this.changeHandler}></StyledInput>
                     </StyledEmailContainer>
 
+                {/* Phone Number  */}
+                    <StyledContainer>
+                        <StyledLabel for="phoneNumber">Your Phone Number: </StyledLabel>
+                        <StyledInput type="tel"
+                                     pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                                     name="phoneNumber"
+                                     id="phoneNumber"
+                                     value={phoneNumber}
+                                     onChange={this.changeHandler}></StyledInput>
+                            
+                    </StyledContainer>
+
+                {/* Date of the event */}
+                <StyledContainer> 
+                        <StyledLabel for="eventDate"> The date of your event: </StyledLabel>
+                        <StyledInput type="date"
+                                     name="eventDate"
+                                     id="eventDate"
+                                     value={eventDate}
+                                     onChange={this.changeHandler}></StyledInput>
+                    </StyledContainer>
+
+                     {/* Date of delivery */}
+                    <StyledContainer> 
+                        <StyledLabel for="dateForCake"> The date you would like your cake: </StyledLabel>
+                        <StyledInput type="date"
+                                     name="dateForCake"
+                                     id="dateForCake"
+                                     value={dateForCake}
+                                     onChange={this.changeHandler}></StyledInput>
+                    </StyledContainer>
+
+                    {/* What type of event is it for  */}
+                    <StyledContainer>
+                        <StyledLabel for="eventType"> What event is the cake for? </StyledLabel>
+                        <StyledInput type="text"
+                                     name="eventType"
+                                     id="eventType"
+                                     value={eventType}
+                                     onChange={this.changeHandler}></StyledInput>
+                    </StyledContainer>
+                    
                 {/* Message  */}
                     <StyledMessageContainer>
-                    <StyledLabel for="message">Your message: </StyledLabel>
+                    <StyledLabel for="message">Tell us a bit more about what you would like. <br/>
+                     Flavour, budget, ideas for theme and decoration, <br/> allergen and dietary requirements are all useful. </StyledLabel>
                         <StyledTextArea type="textarea"
                                name="message"
                                id="message"
@@ -201,4 +248,4 @@ class ContactForm extends React.Component {
     }
 }
 
-export default ContactForm;
+export default OrderForm;

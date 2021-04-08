@@ -17,8 +17,8 @@ const StyledDiv = styled.div`
 
 const StyledCard = styled.div`
   position: absolute;
-  left: 100px;
-  right: 100px;
+  left: 5%;
+  right: 5%;
   top: 5%;
   bottom: 5%;
   margin: auto;
@@ -26,20 +26,21 @@ const StyledCard = styled.div`
   background: white;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   
 `;
 
 const StyledInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly; 
+  justify-content: center; 
   align-items: center;
   height: 100%;
   
 
   `;
 
-const StyledH1 = styled.h1`
+const StyledH4 = styled.h4`
     font-family: ${props => props.theme.fonts.fancy};
     color: ${props => props.theme.colors.lilac};
   `;
@@ -52,31 +53,36 @@ const StyledButton = styled.button`
   bottom: 10px;
   font-family: ${props => props.theme.fonts.sansSerif};
   font-weight: 600;
+  
 
 `;
 
 const StyledImage = styled.img`
-  height: 50%;
-  flex-grow: 1;
-  padding: 10px
+  max-width: 200px;
+  @media (min-width: 321px) {
+    max-height: 70vh;
+    max-width: 50vw;
+  }
+  
   
 `;
 
 const StyledLeftButton = styled.button`
+  background-color: white;
+  color: ${props => props.theme.colors.lilac};
+  height: 20px;
+  border: none;
+  
 `;
 
 const StyledRightButton = styled.button`
+  background-color: white;
+  color: ${props => props.theme.colors.lilac};
+  height: 20px;
+  border: none;
 `;
 
 function GalleryPopUp(props) {
-
-  // const [imageShown, setImageShown] = React.useState(0)
- 
-  // let numberOfImages = imageCollection.length;
-
-  // function goLeft() {
-
-  // }
   const imageCollection = images;
 
   const [imageShown, dispatch] = React.useReducer((state, action) => {
@@ -93,19 +99,19 @@ function GalleryPopUp(props) {
       } else 
           return state + 1;
     } 
-  }, 0)
+  }, (props.id - 1))
 
 
       return (
         <StyledDiv onClick={props.click}>
             <StyledCard onClick={props.doNothing}>
-            <StyledLeftButton onClick={() => dispatch('left')}> Left! </StyledLeftButton>
+            <StyledLeftButton onClick={() => dispatch('left')}> {'<'} </StyledLeftButton>
               <StyledInfoContainer>              
-                    <StyledH1>{imageCollection[imageShown].title}</StyledH1>
-                    <StyledP>{imageCollection[imageShown].alt}</StyledP>
+                    <StyledH4>{imageCollection[imageShown].title}</StyledH4>
                     <StyledImage src={imageCollection[imageShown].img} alt={imageCollection[imageShown].alt} />
+                    <StyledButton onClick={props.click}> X Close </StyledButton>
               </StyledInfoContainer>
-              <StyledRightButton onClick={() => dispatch('right')}> right </StyledRightButton>
+              <StyledRightButton onClick={() => dispatch('right')}> {'>'} </StyledRightButton>
             </StyledCard>
         </StyledDiv>
       )
