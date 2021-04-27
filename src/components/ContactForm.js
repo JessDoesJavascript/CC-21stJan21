@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 const StyledContactForm = styled.div`
     display: flex;
+    background-color: white; 
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -150,12 +151,13 @@ class ContactForm extends React.Component {
             message: this.state.message }
             console.log(params)    
             axios
-                .post('http://localhost:5000/send', params)
+                .post('/send', params)
                 .then(res => {
                     this.setState({ sent: true }, this.resetForm())
                 })
                 .catch(() => {
                     console.log('Message not sent');
+                    this.setState({ buttonText: "message not sent" });
         })
     }
 
