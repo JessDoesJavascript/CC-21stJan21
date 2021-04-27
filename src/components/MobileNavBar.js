@@ -13,7 +13,6 @@ import {
     position: fixed;
     width: 100vw;
     display: flex;
-    top: 58px;  
     z-index: 9998;
   `;
   const StyledBackdrop = styled.div`
@@ -33,16 +32,15 @@ import {
      justify-content: center; 
      opacity: 100%;
      padding: 0;
+     margin-top: 12vh;
  }
  li {
      color: white;
-     margin: 10px;
-     padding: 10px;
+     padding: 20px;
      font-family: ${props => props.theme.fonts.fancy};
      font-weight: 600;
-
      letter-spacing: 2px;
-     font-size: 20px;
+     font-size: clamp(1rem, 1.5vw, 1.75rem); 
      border-bottom: 3px solid ${props => props.theme.colors.lilac};
      a:link {
             text-decoration: none;
@@ -69,7 +67,6 @@ function MobileNavBar(props) {
                     <li onClick={props.click}><Link to="/menu">Menu</Link></li>
                     <li onClick={props.click}><Link to="/gallery">Gallery</Link></li>
                     <li onClick={props.click}><Link to="/testimonials">Testimonials</Link></li>
-                    <li onClick={props.click}><Link to="/terms">Terms and Conditions</Link></li>
                     <li onClick={props.click}><Link to="/contact">Contact</Link></li>
                     <li onClick={props.click}><Link to="/order">Order Enquiries</Link></li>
                 </ul>

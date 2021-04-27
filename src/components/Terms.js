@@ -14,14 +14,14 @@ const TermsContainer = styled.div`
 `;
 
 const StyledH2 = styled.h2`
-
+    font-weight: 400;
 `;
 
 const StyledP = styled.p`
 
 `;
 const TopEmptyDiv = styled.div`
-    height: 78px;
+    height: 25vh;
     `;
 
 

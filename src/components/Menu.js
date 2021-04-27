@@ -23,7 +23,7 @@ const StyledDiv = styled.div`
 `;
 
 const TopEmptyDiv = styled.div`
-    height: 78px;
+    height: 25vh;
     `;
 
 const BottomEmptyDiv = styled.div`
@@ -36,7 +36,7 @@ const BottomEmptyDiv = styled.div`
 const StyledH3 = styled.h3`
     color: ${props => props.theme.colors.darkPurple};
     font-family: ${props => props.theme.fonts.fancy};
-    font-weight: 600;
+    font-weight: 400;
     font-size: 40px; 
     letter-spacing: 2px; 
     margin: 10px; 
@@ -69,16 +69,17 @@ const StyledImgCard = styled.div`
     flex-direction: column;
     justify-content: center; 
     align-items: center; 
-    border-bottom: solid 5px white;
+    padding-bottom: 5px;
+    border-bottom: solid 3px white;
     :hover {
         cursor: pointer;
-        border-bottom: solid 5px ${props => props.theme.colors.lilac}; 
+        border-bottom: solid 3px ${props => props.theme.colors.lilac}; 
     }
 `;
 
 const StyledButton = styled.button`
     font-family: ${props => props.theme.fonts.fancy};
-    font-weight: 600;
+    font-weight: 400;
     background: white;
     margin: 0px; 
     padding: 2px;
@@ -148,14 +149,13 @@ class Menu extends React.Component {
         return (
             <StyledDiv> 
             <TopEmptyDiv />
-                <StyledH3> the menu </StyledH3>
+                <StyledH3>Menu </StyledH3>
                 {this.state.popUpShown === false ? null : <MenuPopUp click={this.clickHandler} 
                                                                  doNothingClick={this.doNothing} 
                                                                  title={this.state.popUpContent.title} 
                                                                  info={this.state.popUpContent.info} 
                                                                  image={this.state.popUpContent.image}/>}
                 <StyledImagesContainer> 
-
                 {/* Cakes image and button  */}
                     <StyledImgCard>
                         <StyledImg src={chocolateCake} 
@@ -180,7 +180,7 @@ class Menu extends React.Component {
                                    alt='Beautiful 3-tiered wedding cake decorated in buttercream and pale pink roses.'
                                    onClick={() => {this.clickHandler('tiered-cakes')}}>
                         </StyledImg>
-                        <StyledButton onClick={() => {this.clickHandler('tiered-cakes')}}>Tiered Cakes</StyledButton>
+                        <StyledButton onClick={() => {this.clickHandler('tiered-cakes')}}>Wedding Cakes</StyledButton>
                     </StyledImgCard>
 
                 {/* Brownies image and button */}

@@ -12,8 +12,8 @@ import {
 
 const StyledNavContainer = styled.div`
     position: fixed;
-    width: 100%;
-    height: 78px;
+    width: 100vw;
+    height: 12vh;
     display: flex;
     flex-direction: row;
     background: ${props => props.theme.colors.lilac};
@@ -21,28 +21,7 @@ const StyledNavContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     z-index: 9999;
-    h1 {
-     font-family: ${props => props.theme.fonts.fancy};
-     font-weight: 300;
-     font-size: 25px;
-     letter-spacing: 2px;
-     color: white;
-     margin: 10px;
-     padding: 10px;
-     a:link {
-            text-decoration: none;
-            color: white;
-            }
-     a:hover {
-            cursor: pointer; 
-        };
-     a:visited {
-            text-decoration: none;
-            color: white; 
-        };
- }
-
-`;
+    `;
 
 const StyledBurgerContainer = styled.div`
     display: flex; 
@@ -53,7 +32,7 @@ const StyledBurgerContainer = styled.div`
     :hover {
             cursor: pointer; 
         };
-    @media (min-width: 700px) {
+    @media (min-width: 1001px) {
         display: none; 
     }
 `;
@@ -65,7 +44,6 @@ const StyledBurgerSegment = styled.div`
     border-radius: 10px;
     background-color: white;
     color: white;  
-    
 `;
 
 const StyledNavBar = styled.nav`
@@ -76,18 +54,20 @@ const StyledNavBar = styled.nav`
      display: flex;
      flex-direction: row;
      justify-content: flex-end;
-     @media (max-width: 699px) {
+     text-decoration: none;
+     @media (max-width: 1000px) {
         display: none;
-     }
- }
+        }
+    }
  li {
+     text-decoration: none;
      color: white;
      margin: 10px;
      padding: 10px;
      font-family: ${props => props.theme.fonts.fancy};
-     font-weight: 600;
+     font-weight: 500;
      letter-spacing: 2px;
-     font-size: 20px;
+     font-size: clamp(1rem, 1.5vw, 1.75rem); 
      border-bottom: 3px solid ${props => props.theme.colors.lilac};
      a:link {
             text-decoration: none;
@@ -101,28 +81,42 @@ const StyledNavBar = styled.nav`
             cursor: pointer; 
             border-bottom: 3px solid white;
         };
- }
+    }
 `;
-
 
 const EmptyDiv = styled.div`
     flex-grow: 1;
 `;
 
 const StyledLogo = styled.img`
-    height: 60px;
+    height: 200px;
     border-radius: 100%;
     margin-left: 10px;
+    position: absolute;
+    top: 5px;
+    @media (max-width: 1230px) {
+        height: 150px;
+    }
+    @media (max-width: 710px) {
+        left: 10px;
+    }
+    @media (max-width: 420px) {
+        
+    }
 `;
 
+const EmptyNavBarDiv = styled.div`
+    width: 10vw;
+    `;
 
+const LinkStyle = {
+  textDecoration: 'none'
+}
 function NavBar(props) {
     return (
         <StyledNavContainer>
-        
-        <StyledLogo src={Logo}></StyledLogo>
-        <div><h1 onClick={props.closeNav}><Link to='/'>Candid Cakery </Link></h1></div>
-      
+        <EmptyNavBarDiv></EmptyNavBarDiv>
+        <Link to="/"><StyledLogo src={Logo} alt="Candid Cakery Logo and home link" onClick={props.homeButtonClose}></StyledLogo></Link>
         <EmptyDiv></EmptyDiv>
             <StyledBurgerContainer onClick={props.click}>
                 <StyledBurgerSegment></StyledBurgerSegment>
@@ -131,15 +125,14 @@ function NavBar(props) {
             </StyledBurgerContainer>
             <StyledNavBar>
                 <ul>     
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/menu">Menu</Link></li>
-                    <li><Link to="/gallery">Gallery</Link></li>
-                    <li><Link to="/testimonials">Testimonials</Link></li>
-                    <li><Link to="/terms">Terms and Conditions</Link></li>
-                    <li><Link to="/contact">Contact</Link></li>
-                    <li><Link to="/order">Order Enquiries</Link></li>
-                </ul>
+                    <Link to="/menu" style={LinkStyle}><li>Menu</li></Link>
+                    <Link to="/gallery" style={LinkStyle}><li>Gallery</li></Link>
+                    <Link to="/testimonials" style={LinkStyle}><li>Testimonials</li></Link>
+                    <Link to="/contact" style={LinkStyle}><li>Contact</li></Link>
+                    <Link to="/order" style={LinkStyle}><li>Enquiries</li></Link>
+                </ul>    
             </StyledNavBar>
+            <EmptyNavBarDiv></EmptyNavBarDiv>
         </StyledNavContainer>
     )
 }

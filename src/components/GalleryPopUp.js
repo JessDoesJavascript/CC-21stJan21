@@ -17,27 +17,25 @@ const StyledDiv = styled.div`
 
 const StyledCard = styled.div`
   position: absolute;
-  left: 5%;
-  right: 5%;
-  top: 5%;
-  bottom: 5%;
+  left: 1vw;
+  right: 1vw;
+  top: 25vh;
+  bottom: 5vh;
   margin: auto;
-  border-radius: 10px;
   background: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  
 `;
 
 const StyledInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: space-between; 
   align-items: center;
   height: 100%;
+  width: 85vw;
   
-
   `;
 
 const StyledH4 = styled.h4`
@@ -45,42 +43,42 @@ const StyledH4 = styled.h4`
     color: ${props => props.theme.colors.lilac};
   `;
 
-const StyledP = styled.p`
-
-  `;
-
-const StyledButton = styled.button`
-  bottom: 10px;
-  font-family: ${props => props.theme.fonts.sansSerif};
-  font-weight: 600;
+  const StyledButton = styled.button`
+  font-family: ${props => props.theme.fonts.fancy};
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.1rem;
   
+  color: ${props => props.theme.colors.darkPurple};
 
+  margin-bottom: 10px;
+  border: 1px solid ${props => props.theme.colors.lilac};
+   :hover { 
+      cursor: pointer;
+  }
 `;
 
 const StyledImage = styled.img`
-  max-width: 200px;
-  @media (min-width: 321px) {
-    max-height: 70vh;
-    max-width: 50vw;
+  max-height: 50vh;
+  max-width: 75vw;
+`;
+
+const StyledScrollButton = styled.button`
+  background-color: white;
+  color: ${props => props.theme.colors.lilac};
+  height: 100%;
+  ${'' /* width: 5vw; */}
+  border: none;
+  font-size: 30px;
+  :hover {
+    cursor: pointer;
   }
-  
-  
 `;
 
-const StyledLeftButton = styled.button`
-  background-color: white;
-  color: ${props => props.theme.colors.lilac};
-  height: 20px;
-  border: none;
-  
-`;
 
-const StyledRightButton = styled.button`
-  background-color: white;
-  color: ${props => props.theme.colors.lilac};
-  height: 20px;
-  border: none;
-`;
 
 function GalleryPopUp(props) {
   const imageCollection = images;
@@ -105,13 +103,13 @@ function GalleryPopUp(props) {
       return (
         <StyledDiv onClick={props.click}>
             <StyledCard onClick={props.doNothing}>
-            <StyledLeftButton onClick={() => dispatch('left')}> {'<'} </StyledLeftButton>
+            <StyledScrollButton onClick={() => dispatch('left')}>{'<'}</StyledScrollButton>
               <StyledInfoContainer>              
                     <StyledH4>{imageCollection[imageShown].title}</StyledH4>
                     <StyledImage src={imageCollection[imageShown].img} alt={imageCollection[imageShown].alt} />
                     <StyledButton onClick={props.click}> X Close </StyledButton>
               </StyledInfoContainer>
-              <StyledRightButton onClick={() => dispatch('right')}> {'>'} </StyledRightButton>
+              <StyledScrollButton onClick={() => dispatch('right')}>{'>'}</StyledScrollButton>
             </StyledCard>
         </StyledDiv>
       )

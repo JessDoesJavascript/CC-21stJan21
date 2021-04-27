@@ -15,16 +15,15 @@ const StyledDiv = styled.div`
 `;
 
 const EmptyDiv = styled.div`
-height: 78px; 
+    height: 20vh; 
 `;
 
 const StyledH3 = styled.h3`   
     color: ${props => props.theme.colors.darkPurple};
     font-family: ${props => props.theme.fonts.fancy};
-    font-weight: 600;
+    font-weight: 400;
     font-size: 40px; 
     letter-spacing: 2px; 
-    margin-top: 0px;
     padding: 10px; 
 `;
 
@@ -33,72 +32,55 @@ const StyledPhotosContainer = styled.div`
     flex-wrap: wrap;
     align-items: center; 
     justify-content: center; 
-    width: 80%;
+    width: 100vw;
     
 `;  
 
-const StyledButton = styled.button`
-    font-family: ${props => props.theme.fonts.fancy};
-    font-weight: 700;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    letter-spacing: 0.1rem;
-    color: ${props => props.theme.colors.darkPurple};
-    padding: 5px;
-    margin: 10px;
-    border: 1px solid ${props => props.theme.colors.lilac};
-     :hover { 
-        cursor: pointer;
-    }
-`;
+
 
 class Gallery extends React.Component {
-
     state = {
         popUpShown: false,
         imgId: 0
     }
-    
     clickHandler = () => {
         this.setState({
             popUpShown: !this.state.popUpShown,
         })
     }
-
     imageClick = (id) => {
         this.setState({
             popUpShown: !this.state.popUpShown,
             imgId: id
-            
         })
     }
     doNothing = (e) => {
         e.stopPropagation();
       }
- 
     render() { 
         let imageCollection = images;
         return (
             <StyledDiv>
             <EmptyDiv></EmptyDiv>
-            <StyledH3>the gallery</StyledH3>
+            <StyledH3>Gallery</StyledH3>
             
-            {/* <StyledButton onClick={() => {this.clickHandler()}}> Click here to open the gallery! </StyledButton> */}
             <StyledPhotosContainer>
                  {imageCollection.map(image => (
-                        <GalleryImage img={image.img} alt={image.alt} id={image.id} key={image.id} click={() => this.imageClick(image.id)}></GalleryImage>
+                        <GalleryImage 
+                            img={image.img} 
+                            alt={image.alt} 
+                            id={image.id} 
+                            key={image.id} 
+                            click={() => this.imageClick(image.id)}>
+                        </GalleryImage>
                         ))}
-                    </StyledPhotosContainer>
+            </StyledPhotosContainer>
             
-            {this.state.popUpShown === false ? null : <GalleryPopUp     id={this.state.imgId}
-                                                                        click={this.clickHandler}
-                                                                        doNothing={this.doNothing}
-                                                                        
-                                                                 />
-                                                                 }
-                    
+            {this.state.popUpShown === false ? null : <GalleryPopUp     
+                                                            id={this.state.imgId}
+                                                            click={this.clickHandler}
+                                                            doNothing={this.doNothing}         
+                                                                 />}                          
             </StyledDiv>
         )
     }

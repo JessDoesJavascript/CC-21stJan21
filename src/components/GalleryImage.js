@@ -12,7 +12,7 @@ const StyledImg = styled.img`
     margin: 5px;
     :hover {
         cursor: pointer;
-        box-shadow: 1px 7px 5px -5px ${props => props.theme.colors.lilac};
+        box-shadow: 1px 7px 0px -5px ${props => props.theme.colors.lilac};
     }
     
     

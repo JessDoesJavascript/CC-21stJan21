@@ -10,6 +10,7 @@ import Testimonials from './components/Testimonials';
 import ContactForm from './components/ContactForm';
 import OrderForm from './components/OrderForm';
 import Terms from './components/Terms';
+import PrivacyPolicy from './components/PrivacyPolicy';
 import Footer from './components/Footer';
 import styled from 'styled-components';
 import {
@@ -41,11 +42,17 @@ clickHandler = (e) => {
 }
 
 doNothing = (e) => {
+  e.preventDefault();
   e.stopPropagation();
 }
 
 closeNav = (e) => {
   e.preventDefault();
+  this.setState({
+    navBarOpen: false
+  })
+}
+homeButtonClose = (e) => {
   this.setState({
     navBarOpen: false
   })
@@ -56,7 +63,7 @@ closeNav = (e) => {
   return (
     <Theme>
     <StyledDiv>
-    <NavBar click={this.clickHandler} closeNav={this.closeNav} />
+    <NavBar click={this.clickHandler} closeNav={this.closeNav} homeButton={this.homeButtonClose}/>
     {this.state.navBarOpen === true && <MobileNavBar click={this.clickHandler} doNothingClick={this.doNothing} /> || null }
     <Switch>
           <Route exact path="/">
@@ -71,14 +78,17 @@ closeNav = (e) => {
           <Route exact path="/testimonials">
             <Testimonials />
           </Route>
-          <Route exact path="/terms">
-            <Terms />
-          </Route>
           <Route exact path="/contact">
             <ContactForm />
           </Route>
           <Route exact path="/order">
             <OrderForm />
+          </Route>
+          <Route exact path="/terms">
+            <Terms />
+          </Route>
+          <Route exact path="/privacy">
+            <PrivacyPolicy />
           </Route>
     </Switch>
     <Footer />

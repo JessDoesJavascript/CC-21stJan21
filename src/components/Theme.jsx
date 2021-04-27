@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 const theme = {
     colors: { 
         sage: '#b6b298',
-        lilac: '#7B518A',
+        lilac: '#6E4A7D',
         peach: '#eda5ae',
         pink: '#eeaddb',
         cream: '#feefd5',

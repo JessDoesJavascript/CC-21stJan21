@@ -8,15 +8,15 @@ const StyledContactForm = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 5%;
-    padding-top: 10vh;
+    padding: 5%;
+    padding-top: 12vh;
 `;
 
 const StyledH3 = styled.h3`
     color: ${props => props.theme.colors.darkPurple};
     font-family: ${props => props.theme.fonts.fancy};
-    font-weight: 600;
-    font-size: 40px; 
+    font-weight: 400;
+    font-size: clamp(1.75rem, 1.9rem, 2rem);
     letter-spacing: 2px; 
     margin-top: 0px;
     margin-bottom: 0px;
@@ -33,24 +33,9 @@ const StyledForm =  styled.form`
 const StyledLabel = styled.label`
     font-family: ${props => props.theme.fonts.sansSerif};
     color: ${props => props.theme.colors.darkPurple};
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: 2px; 
     padding: 1rem;
-`;
-
-const StyledNameContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    `;
-
-const StyledEmailContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 `;
 
 const StyledMessageContainer = styled.div`
@@ -65,10 +50,8 @@ const StyledContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 90vw;
 `;
-
-
-
 
 const StyledButton = styled.button`
     font-family: ${props => props.theme.fonts.fancy};
@@ -95,7 +78,7 @@ const StyledInput = styled.input`
 `;
 
 const StyledTextArea = styled.textarea`
-    width: 300px;
+    width: 100%;
     height: 150px; 
 `;
 
@@ -152,7 +135,7 @@ class OrderForm extends React.Component {
             message: this.state.message }
             console.log(params)    
             axios
-                .post('http://localhost:5000/send', params)
+                .post('http://localhost:5000/sendEnquiry', params)
                 .then(res => {
                     this.setState({ sent: true }, this.resetForm())
                 })
@@ -162,43 +145,43 @@ class OrderForm extends React.Component {
     }
 
     render() {
-        const { name, email, phoneNumber, message, eventDate, dateForCake, eventType } = this.state
+        const { name, email, phoneNumber, eventDate, dateForCake, eventType, message } = this.state
         return (
             <StyledContactForm>
             <EmptyDiv />
-                <StyledH3> order enquiries </StyledH3>
+                <StyledH3> Order Enquiries </StyledH3>
                 <StyledForm onSubmit={this.submitHandler}>
 
                 {/* Name  */}
-                    <StyledNameContainer> 
+                    <StyledContainer> 
                         <StyledLabel for="name">Your name: </StyledLabel>
                         <StyledInput type="text"
                                name="name"
                                id="name"
                                value={name}
-                               onChange={this.changeHandler}></StyledInput>
-                    </StyledNameContainer>
+                               onChange={this.changeHandler}
+                               required></StyledInput>
+                    </StyledContainer>
 
                 {/* Email */}
-                    <StyledEmailContainer>
+                    <StyledContainer>
                     <StyledLabel for="email">Your email address: </StyledLabel>
                         <StyledInput type="email"
                                name="email"
                                id="email"
                                value={email}
-                               onChange={this.changeHandler}></StyledInput>
-                    </StyledEmailContainer>
+                               onChange={this.changeHandler}
+                               required></StyledInput>
+                    </StyledContainer>
 
                 {/* Phone Number  */}
                     <StyledContainer>
-                        <StyledLabel for="phoneNumber">Your Phone Number: </StyledLabel>
+                        <StyledLabel for="phoneNumber">Your phone number: </StyledLabel>
                         <StyledInput type="tel"
-                                     pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                                      name="phoneNumber"
                                      id="phoneNumber"
                                      value={phoneNumber}
-                                     onChange={this.changeHandler}></StyledInput>
-                            
+                                     onChange={this.changeHandler}></StyledInput>                    
                     </StyledContainer>
 
                 {/* Date of the event */}
@@ -208,7 +191,8 @@ class OrderForm extends React.Component {
                                      name="eventDate"
                                      id="eventDate"
                                      value={eventDate}
-                                     onChange={this.changeHandler}></StyledInput>
+                                     onChange={this.changeHandler}
+                                     required></StyledInput>
                     </StyledContainer>
 
                      {/* Date of delivery */}
@@ -218,17 +202,20 @@ class OrderForm extends React.Component {
                                      name="dateForCake"
                                      id="dateForCake"
                                      value={dateForCake}
-                                     onChange={this.changeHandler}></StyledInput>
+                                     onChange={this.changeHandler}
+                                     required></StyledInput>
                     </StyledContainer>
 
                     {/* What type of event is it for  */}
                     <StyledContainer>
-                        <StyledLabel for="eventType"> What event is the cake for? </StyledLabel>
+                        <StyledLabel for="eventType"> What event is the cake for? For example, birthday, wedding, funeral etc.</StyledLabel>
+                        
                         <StyledInput type="text"
                                      name="eventType"
                                      id="eventType"
                                      value={eventType}
-                                     onChange={this.changeHandler}></StyledInput>
+                                     onChange={this.changeHandler}
+                                     required></StyledInput>
                     </StyledContainer>
                     
                 {/* Message  */}
@@ -239,7 +226,8 @@ class OrderForm extends React.Component {
                                name="message"
                                id="message"
                                value={message}
-                               onChange={this.changeHandler}></StyledTextArea>
+                               onChange={this.changeHandler}
+                               required></StyledTextArea>
                     </StyledMessageContainer>
                 <StyledButton type="submit">{this.state.buttonText}</StyledButton>
                 </StyledForm>

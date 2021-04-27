@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 const StyledDiv = styled.div`
   position: fixed;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   top: 0;
   left: 0;
   right: 0;
@@ -18,8 +18,8 @@ const StyledCard = styled.div`
   position: absolute;
   left: 10%;
   right: 10%;
-  top: 30%;
-  bottom: 30%;
+  top: 35vh;
+  bottom: 20vh;
   margin: auto;
   border-radius: 10px;
   box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);

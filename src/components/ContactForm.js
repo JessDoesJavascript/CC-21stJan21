@@ -16,7 +16,7 @@ const StyledContactForm = styled.div`
 const StyledH3 = styled.h3`
     color: ${props => props.theme.colors.darkPurple};
     font-family: ${props => props.theme.fonts.fancy};
-    font-weight: 600;
+    font-weight: 400;
     font-size: 40px; 
     letter-spacing: 2px; 
     margin-top: 0px;
@@ -28,6 +28,8 @@ const StyledP = styled.p`
     font-family: ${props => props.theme.fonts.sansSerif};
     color: ${props => props.theme.colors.darkPurple};
     letter-spacing: 1px;
+    margin-left: 5vw;
+    margin-right: 5vw;
 `;
 
 const StyledForm =  styled.form`
@@ -104,7 +106,8 @@ const StyledTextArea = styled.textarea`
 `;
 
 const EmptyDiv = styled.div`
-    height: 78px;
+    height: 15vh;
+    min-height: 100px;
 `;
 
 class ContactForm extends React.Component {
@@ -161,7 +164,7 @@ class ContactForm extends React.Component {
         return (
             <StyledContactForm>
             <EmptyDiv />
-                <StyledH3> get in touch </StyledH3>
+                <StyledH3> Get In Touch </StyledH3>
                 <StyledP> If you would like to enquire about placing an order, please visit our <Link to="/order">order enquiries page</Link> and fill in the form there. </StyledP>
                 <StyledForm onSubmit={this.submitHandler}>
 
