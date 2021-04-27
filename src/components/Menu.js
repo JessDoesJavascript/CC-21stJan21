@@ -10,28 +10,16 @@ import MenuPopUp from './MenuPopUp';
 const StyledDiv = styled.div`
     background-color: ${props => props.theme.colors.palePink};
     width: 100%; 
-    height: 100%;
     display: flex; 
     flex-direction: column; 
     align-items: center; 
-    padding-bottom: 10%;
-    padding-top: 5%;
-    @media (min-height: 770px) {
-        height: 100vh;
-    }
+    padding-top: 18vh;
+    padding-bottom: 8vh;
+    
     
 `;
 
-const TopEmptyDiv = styled.div`
-    height: 25vh;
-    `;
 
-const BottomEmptyDiv = styled.div`
-    height: 10vh;
-    @media (min-width: 719px) {
-        display: none;
-    }
-    `;
 
 const StyledH3 = styled.h3`
     color: ${props => props.theme.colors.darkPurple};
@@ -41,6 +29,9 @@ const StyledH3 = styled.h3`
     letter-spacing: 2px; 
     margin: 10px; 
     padding: 10px; 
+    @media (min-width: 925px) {
+        padding-bottom: 5vw;
+    }
 `;
 
 const StyledImg = styled.img`
@@ -148,7 +139,6 @@ class Menu extends React.Component {
     render() {
         return (
             <StyledDiv> 
-            <TopEmptyDiv />
                 <StyledH3>Menu </StyledH3>
                 {this.state.popUpShown === false ? null : <MenuPopUp click={this.clickHandler} 
                                                                  doNothingClick={this.doNothing} 
@@ -192,7 +182,6 @@ class Menu extends React.Component {
                         <StyledButton onClick={() => {this.clickHandler('brownies')}}>Other Bakes</StyledButton>
                     </StyledImgCard>
                 </StyledImagesContainer>
-                <BottomEmptyDiv />
             </StyledDiv>
         )
     }

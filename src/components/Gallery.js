@@ -12,6 +12,8 @@ const StyledDiv = styled.div`
     justify-content: center; 
     flex-direction: column;
     align-items: center;
+    padding-top: 15vh;
+    padding-bottom: 18vh;
 `;
 
 const EmptyDiv = styled.div`
@@ -32,7 +34,10 @@ const StyledPhotosContainer = styled.div`
     flex-wrap: wrap;
     align-items: center; 
     justify-content: center; 
+    max-width: 80vw;
+    @media (max-width: 600px) {
     width: 100vw;
+    }
     
 `;  
 
@@ -61,7 +66,7 @@ class Gallery extends React.Component {
         let imageCollection = images;
         return (
             <StyledDiv>
-            <EmptyDiv></EmptyDiv>
+          
             <StyledH3>Gallery</StyledH3>
             
             <StyledPhotosContainer>
