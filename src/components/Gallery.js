@@ -75,17 +75,17 @@ class Gallery extends React.Component {
                             img={image.img} 
                             alt={image.alt} 
                             id={image.id} 
-                            key={image.id} 
-                            click={() => this.imageClick(image.id)}>
+                            key={image.id} >
+                            {/* // click={() => this.imageClick(image.id)} */}
                         </GalleryImage>
                         ))}
             </StyledPhotosContainer>
-            
+{/*             
             {this.state.popUpShown === false ? null : <GalleryPopUp     
                                                             id={this.state.imgId}
                                                             click={this.clickHandler}
                                                             doNothing={this.doNothing}         
-                                                                 />}                          
+                                                                 />}                           */}
             </StyledDiv>
         )
     }
