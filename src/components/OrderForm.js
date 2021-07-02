@@ -32,14 +32,6 @@ const StyledH3 = styled.h3`
     padding: 10px; 
 `;
 
-
-const StyledP = styled.p`
-    font-family: ${props => props.theme.fonts.sansSerif};
-    color: ${props => props.theme.colors.darkPurple};
-    letter-spacing: 1px;
-    text-align: center;
-`;
-
 const StyledForm = styled.form`
     display: flex;
     flex-direction: column;
@@ -171,8 +163,6 @@ class OrderForm extends React.Component {
                 <StyledP> Please note that this website is currently still in development, and messages sent through this contact form go to an email inbox that is not checked regularly. </StyledP>
               
                 <StyledForm onSubmit={this.submitHandler}>
-                <StyledP>Please note that this website is currently still in development, and messages sent through this contact form go to an email inbox that is not checked regularly.</StyledP>
-
                 {/* Name  */}
                     <StyledContainer> 
                         <StyledLabel htmlFor="name">Your name: </StyledLabel>
