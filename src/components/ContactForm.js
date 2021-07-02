@@ -167,8 +167,7 @@ class ContactForm extends React.Component {
             <StyledContactForm>
             <EmptyDiv />
                 <StyledH3> Get In Touch </StyledH3>
-               <StyledP> Please note that this website is currently still in development, and messages sent through this contact form go to an email inbox that is not checked regularly. </StyledP>
-                <StyledForm onSubmit={this.submitHandler}>
+               <StyledForm onSubmit={this.submitHandler}>
                 <StyledP>Please note that this website is currently still in development, and messages sent through this contact form go to an email inbox that is not checked regularly.</StyledP>
                 {/* Name  */}
                     <StyledNameContainer> 
