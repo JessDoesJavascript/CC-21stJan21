@@ -13,9 +13,10 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import Footer from './components/Footer';
 import styled from 'styled-components';
 import {
-  BrowserRouter as 
+  BrowserRouter as Router,
   Switch,
   Route,
+  Link
 } from "react-router-dom";
 
 
@@ -61,8 +62,13 @@ homeButtonClose = (e) => {
   return (
     <Theme>
     <StyledDiv>
-    <NavBar click={this.clickHandler} closeNav={this.closeNav} homeButton={this.homeButtonClose}/>
-    {this.state.navBarOpen === true && <MobileNavBar click={this.clickHandler} doNothingClick={this.doNothing} /> || null }
+    <NavBar click={this.clickHandler} 
+            closeNav={this.closeNav} 
+            homeButton={this.homeButtonClose}/>
+    
+    {this.state.navBarOpen === true && <MobileNavBar 
+                                        click={this.clickHandler} 
+                                        doNothingClick={this.doNothing} /> || null }
     <Switch>
           <Route exact path="/">
             <About />
