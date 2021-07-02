@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 const StyledContactForm = styled.div`
     display: flex;
+    background-color: white; 
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -150,12 +151,13 @@ class ContactForm extends React.Component {
             message: this.state.message }
             console.log(params)    
             axios
-                .post('http://localhost:5000/send', params)
+                .post('/send', params)
                 .then(res => {
                     this.setState({ sent: true }, this.resetForm())
                 })
                 .catch(() => {
                     console.log('Message not sent');
+                    this.setState({ buttonText: "message not sent" });
         })
     }
 
@@ -166,6 +168,7 @@ class ContactForm extends React.Component {
             <EmptyDiv />
                 <StyledH3> Get In Touch </StyledH3>
                 <StyledP> If you would like to enquire about placing an order, please visit our <Link to="/order">order enquiries page</Link> and fill in the form there. </StyledP>
+                <StyledP> Please note that this website is currently still in development, and messages sent through this contact form go to an email inbox that is not checked regularly. </StyledP>
                 <StyledForm onSubmit={this.submitHandler}>
                 <StyledP>Please note that this website is currently still in development, and messages sent through this contact form go to an email inbox that is not checked regularly.</StyledP>
                 {/* Name  */}

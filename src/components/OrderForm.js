@@ -10,6 +10,15 @@ const StyledContactForm = styled.div`
     align-items: center;
     padding: 5%;
     padding-top: 12vh;
+    background-color: white; 
+`;
+
+const StyledP = styled.p`
+    font-family: ${props => props.theme.fonts.sansSerif};
+    color: ${props => props.theme.colors.darkPurple};
+    letter-spacing: 1px;
+    margin-left: 5vw;
+    margin-right: 5vw;
 `;
 
 const StyledH3 = styled.h3`
@@ -143,12 +152,13 @@ class OrderForm extends React.Component {
             message: this.state.message }
             console.log(params)    
             axios
-                .post('http://localhost:5000/sendEnquiry', params)
+                .post('/sendEnquiry', params)
                 .then(res => {
                     this.setState({ sent: true }, this.resetForm())
                 })
                 .catch(() => {
                     console.log('Message not sent');
+                    this.setState({ buttonText: "message not sent" });
         })
     }
 
@@ -158,6 +168,8 @@ class OrderForm extends React.Component {
             <StyledContactForm>
             <EmptyDiv />
                 <StyledH3> Order Enquiries </StyledH3>
+                <StyledP> Please note that this website is currently still in development, and messages sent through this contact form go to an email inbox that is not checked regularly. </StyledP>
+              
                 <StyledForm onSubmit={this.submitHandler}>
                 <StyledP>Please note that this website is currently still in development, and messages sent through this contact form go to an email inbox that is not checked regularly.</StyledP>
 

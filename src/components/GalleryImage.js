@@ -7,13 +7,10 @@ const StyledDiv = styled.div`
 `;
 
 const StyledImg = styled.img`
-    height: 100px;
+    max-width: 300px;
     border: solid 10px white;
-    margin: 5px;
-    :hover {
-        cursor: pointer;
-        box-shadow: 1px 7px 0px -5px ${props => props.theme.colors.lilac};
-    }
+   
+   
     
     
     

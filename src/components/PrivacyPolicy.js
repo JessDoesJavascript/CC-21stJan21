@@ -4,9 +4,10 @@ import styled from 'styled-components';
 
 const PrivacyPolicyContainer = styled.div`
     display: flex;
+    background-color: white;
     flex-direction: column;
-    margin-left: 10%;
-    margin-right: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
     justify-content: center;
     align-items: center;
     font-family: ${props => props.theme.fonts.sansSerif};
