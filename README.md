@@ -1,1 +1,1 @@
-This is a website I built for a friend's baking business. It used React and Styled Components on the front end, and Node.js, Express and Axios on the back end. 
+This is a website I built for a friend's baking business. I used React, Styled-Components, Node.js and Express. 
