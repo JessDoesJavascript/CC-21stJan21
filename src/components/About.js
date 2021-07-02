@@ -23,7 +23,7 @@ const StyledTextContainer = styled.div`
     padding: 5vw;
 `;
 
-const StyledP = styled.p`
+const StyledP = styled.h1`
     font-family: ${props => props.theme.fonts.fancy};
     color: ${props => props.theme.colors.darkPurple};
     font-weight: 500;

@@ -1,6 +1,5 @@
 import React from 'react';
 import Theme from './components/Theme';
-
 import NavBar from './components/NavBar';
 import MobileNavBar from './components/MobileNavBar'
 import About from './components/About';
@@ -14,10 +13,9 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import Footer from './components/Footer';
 import styled from 'styled-components';
 import {
-  BrowserRouter as Router,
+  BrowserRouter as 
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 

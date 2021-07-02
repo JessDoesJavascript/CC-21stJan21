@@ -167,10 +167,10 @@ class ContactForm extends React.Component {
                 <StyledH3> Get In Touch </StyledH3>
                 <StyledP> If you would like to enquire about placing an order, please visit our <Link to="/order">order enquiries page</Link> and fill in the form there. </StyledP>
                 <StyledForm onSubmit={this.submitHandler}>
-
+                <StyledP>Please note that this website is currently still in development, and messages sent through this contact form go to an email inbox that is not checked regularly.</StyledP>
                 {/* Name  */}
                     <StyledNameContainer> 
-                        <StyledLabel for="name">Your name: </StyledLabel>
+                        <StyledLabel htmlFor="name">Your name: </StyledLabel>
                         <StyledInput type="text"
                                name="name"
                                id="name"
@@ -180,7 +180,7 @@ class ContactForm extends React.Component {
 
                 {/* Email */}
                     <StyledEmailContainer>
-                    <StyledLabel for="email">Your email address: </StyledLabel>
+                    <StyledLabel htmlFor="email">Your email address: </StyledLabel>
                         <StyledInput type="email"
                                name="email"
                                id="email"
@@ -190,7 +190,7 @@ class ContactForm extends React.Component {
 
                 {/* Message  */}
                     <StyledMessageContainer>
-                    <StyledLabel for="message">Your message: </StyledLabel>
+                    <StyledLabel htmlFor="message">Your message: </StyledLabel>
                         <StyledTextArea type="textarea"
                                name="message"
                                id="message"

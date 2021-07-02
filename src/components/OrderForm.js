@@ -23,7 +23,15 @@ const StyledH3 = styled.h3`
     padding: 10px; 
 `;
 
-const StyledForm =  styled.form`
+
+const StyledP = styled.p`
+    font-family: ${props => props.theme.fonts.sansSerif};
+    color: ${props => props.theme.colors.darkPurple};
+    letter-spacing: 1px;
+    text-align: center;
+`;
+
+const StyledForm = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -151,10 +159,11 @@ class OrderForm extends React.Component {
             <EmptyDiv />
                 <StyledH3> Order Enquiries </StyledH3>
                 <StyledForm onSubmit={this.submitHandler}>
+                <StyledP>Please note that this website is currently still in development, and messages sent through this contact form go to an email inbox that is not checked regularly.</StyledP>
 
                 {/* Name  */}
                     <StyledContainer> 
-                        <StyledLabel for="name">Your name: </StyledLabel>
+                        <StyledLabel htmlFor="name">Your name: </StyledLabel>
                         <StyledInput type="text"
                                name="name"
                                id="name"
@@ -165,7 +174,7 @@ class OrderForm extends React.Component {
 
                 {/* Email */}
                     <StyledContainer>
-                    <StyledLabel for="email">Your email address: </StyledLabel>
+                    <StyledLabel htmlFor="email">Your email address: </StyledLabel>
                         <StyledInput type="email"
                                name="email"
                                id="email"
@@ -176,7 +185,7 @@ class OrderForm extends React.Component {
 
                 {/* Phone Number  */}
                     <StyledContainer>
-                        <StyledLabel for="phoneNumber">Your phone number: </StyledLabel>
+                        <StyledLabel htmlFor="phoneNumber">Your phone number: </StyledLabel>
                         <StyledInput type="tel"
                                      name="phoneNumber"
                                      id="phoneNumber"
@@ -186,7 +195,7 @@ class OrderForm extends React.Component {
 
                 {/* Date of the event */}
                 <StyledContainer> 
-                        <StyledLabel for="eventDate"> The date of your event: </StyledLabel>
+                        <StyledLabel htmlFor="eventDate"> The date of your event: </StyledLabel>
                         <StyledInput type="date"
                                      name="eventDate"
                                      id="eventDate"
@@ -197,7 +206,7 @@ class OrderForm extends React.Component {
 
                      {/* Date of delivery */}
                     <StyledContainer> 
-                        <StyledLabel for="dateForCake"> The date you would like your cake: </StyledLabel>
+                        <StyledLabel htmlFor="dateForCake"> The date you would like your cake: </StyledLabel>
                         <StyledInput type="date"
                                      name="dateForCake"
                                      id="dateForCake"
@@ -208,8 +217,7 @@ class OrderForm extends React.Component {
 
                     {/* What type of event is it for  */}
                     <StyledContainer>
-                        <StyledLabel for="eventType"> What event is the cake for? For example, birthday, wedding, funeral etc.</StyledLabel>
-                        
+                        <StyledLabel htmlFor="eventType"> What event is the cake for? For example, birthday, wedding, funeral etc.</StyledLabel>   
                         <StyledInput type="text"
                                      name="eventType"
                                      id="eventType"
@@ -220,7 +228,7 @@ class OrderForm extends React.Component {
                     
                 {/* Message  */}
                     <StyledMessageContainer>
-                    <StyledLabel for="message">Tell us a bit more about what you would like. <br/>
+                    <StyledLabel htmlFor="message">Tell us a bit more about what you would like. <br/>
                      Flavour, budget, ideas for theme and decoration, <br/> allergen and dietary requirements are all useful. </StyledLabel>
                         <StyledTextArea type="textarea"
                                name="message"
