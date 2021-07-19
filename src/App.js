@@ -35,7 +35,7 @@ constructor(props) {
 }
 
 clickHandler = (e) => {
-  e.preventDefault();
+  
   this.setState({
     navBarOpen: !this.state.navBarOpen
   })

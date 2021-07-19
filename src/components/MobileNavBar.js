@@ -24,6 +24,7 @@ import {
   `;
   const StyledNav = styled(animated.nav)`
     ul {
+    text-decoration: none;
      list-style-type: none;
      display: flex;
      background-color: ${props => props.theme.colors.lilac};
@@ -35,6 +36,7 @@ import {
      margin-top: 12vh;
  }
  li {
+    text-decoration: none;
      color: white;
      padding: 20px;
      font-family: ${props => props.theme.fonts.fancy};
@@ -42,6 +44,7 @@ import {
      letter-spacing: 2px;
      font-size: clamp(1rem, 1.5vw, 1.75rem); 
      border-bottom: 3px solid ${props => props.theme.colors.lilac};
+
      a:link {
             text-decoration: none;
             color: white;
@@ -56,6 +59,10 @@ import {
         };
      }
   `;
+
+  const LinkStyle = {
+    textDecoration: 'none'
+  }
 
 function MobileNavBar(props) {
   const navAnimation = useSpring({
@@ -74,12 +81,12 @@ function MobileNavBar(props) {
         <StyledBackdrop onClick={props.click}>
             <StyledNav>
                 <ul onClick={props.doNothingClick}>
-                    <li onClick={props.click}><Link to="/">Home</Link></li>
-                    <li onClick={props.click}><Link to="/menu">Menu</Link></li>
-                    <li onClick={props.click}><Link to="/gallery">Gallery</Link></li>
-                    <li onClick={props.click}><Link to="/testimonials">Testimonials</Link></li>
-                    <li onClick={props.click}><Link to="/contact">Contact</Link></li>
-                    <li onClick={props.click}><Link to="/order">Order Enquiries</Link></li>
+                    <Link to="/" style={LinkStyle}><li onClick={props.click}>Home</li></Link>
+                    <Link to="/menu" style={LinkStyle}><li onClick={props.click}>Menu</li></Link>
+                    <Link to="/gallery" style={LinkStyle}><li onClick={props.click}>Gallery</li></Link>
+                    <Link to="/testimonials" style={LinkStyle}><li onClick={props.click}>Testimonials</li></Link>
+                    <Link to="/contact" style={LinkStyle}><li onClick={props.click}>Contact</li></Link>
+                    <Link to="/order" style={LinkStyle}><li onClick={props.click}>Order Enquiries</li></Link>
                 </ul>
             </StyledNav>
             </StyledBackdrop>
