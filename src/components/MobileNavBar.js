@@ -1,6 +1,6 @@
 
 import React, { useState, setState } from 'react'
-
+import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components'
 import {
     BrowserRouter as Router,
@@ -9,7 +9,7 @@ import {
     Link
   } from "react-router-dom";
 
-  const StyledMobileNavContainer = styled.div`
+  const StyledMobileNavContainer = styled(animated.div)`
     position: fixed;
     width: 100vw;
     display: flex;
@@ -22,7 +22,7 @@ import {
     display: flex; 
     justify-content: flex-end; 
   `;
-  const StyledNav = styled.nav`
+  const StyledNav = styled(animated.nav)`
     ul {
      list-style-type: none;
      display: flex;
@@ -58,11 +58,22 @@ import {
   `;
 
 function MobileNavBar(props) {
+  const navAnimation = useSpring({
+          to: { 
+                top: 0,
+                opacity: 1 }, 
+          from: {  
+                top: -1000,
+                opacity: 0 },
+         reset: true,
+         delay: 200,
+  })
+
     return (
-      <StyledMobileNavContainer>
+      <StyledMobileNavContainer style={navAnimation}>
         <StyledBackdrop onClick={props.click}>
             <StyledNav>
-                <ul onClick={props.doNothingClick}>     
+                <ul onClick={props.doNothingClick}>
                     <li onClick={props.click}><Link to="/">Home</Link></li>
                     <li onClick={props.click}><Link to="/menu">Menu</Link></li>
                     <li onClick={props.click}><Link to="/gallery">Gallery</Link></li>

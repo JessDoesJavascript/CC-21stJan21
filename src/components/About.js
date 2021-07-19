@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import logo from './images/logo.jpeg';
 import ValentinesCupcakes from './images/valentinesCupcakes.jpg';
+
+import { useSpring, animated } from 'react-spring';
 
 const StyledDiv = styled.div`
     width: 100vw;
@@ -23,7 +24,7 @@ const StyledTextContainer = styled.div`
     padding: 5vw;
 `;
 
-const StyledP = styled.h1`
+const StyledP = styled(animated.p)`
     font-family: ${props => props.theme.fonts.fancy};
     color: ${props => props.theme.colors.darkPurple};
     font-weight: 500;
@@ -34,6 +35,7 @@ const StyledP = styled.h1`
     box-shadow: 0px 1px 27px 1px rgba(251, 227, 248, 0.5);
     background-color: rgba(255, 255, 255, 0.9);
     text-align: center;
+
 `;
 
 const EmptyDiv = styled.div`
@@ -42,15 +44,21 @@ const EmptyDiv = styled.div`
         height: 25vh;
     }
 `;
-// rgba(251, 227, 248, 0.5) pink
-// rgba(54,40,103,0.5) purple
+
+
 
 function About() {
+    const props =  useSpring({
+         to: { opacity: 1 }, 
+         from: { opacity: 0 },
+        //  reset: true,
+         delay: 200
+       });
     return (
         <StyledDiv> 
            <StyledTextContainer>  
            <EmptyDiv />
-                <StyledP>Candid Cakery is an independent bakery based in Brighton, East Sussex. <br/> <br/>
+                <StyledP style={props}>Candid Cakery is an independent bakery based in Brighton, East Sussex. <br/> <br/>
             From simple to bespoke designs, we can create, bake and decorate cakes for all celebrations and occasions.</StyledP>
             </StyledTextContainer>
         </StyledDiv>

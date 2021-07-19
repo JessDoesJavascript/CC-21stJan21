@@ -20,6 +20,7 @@ import {
 } from "react-router-dom";
 
 
+
 const StyledDiv = styled.div`
     margin: 0;
     padding: 0;    
@@ -62,13 +63,15 @@ homeButtonClose = (e) => {
   return (
     <Theme>
     <StyledDiv>
+
     <NavBar click={this.clickHandler} 
             closeNav={this.closeNav} 
             homeButton={this.homeButtonClose}/>
-    
+        
     {this.state.navBarOpen === true && <MobileNavBar 
                                         click={this.clickHandler} 
                                         doNothingClick={this.doNothing} /> || null }
+                                        
     <Switch>
           <Route exact path="/">
             <About />
